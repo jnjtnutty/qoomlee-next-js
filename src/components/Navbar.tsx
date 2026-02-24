@@ -22,7 +22,7 @@ export default function Navbar({ isMobile }: NavbarProps) {
 
     return (
         <nav className="w-full h-auto bg-white flex justify-center items-center px-8 py-4">
-            <div className="max-w-5xl w-full flex justify-between">
+            <div className="max-w-6xl w-full flex justify-between">
             <div className="flex items-center gap-2">
                 <Image
                     src="/next.svg"
