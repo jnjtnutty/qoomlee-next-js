@@ -14,8 +14,8 @@ export default function RetrieveBooking({onRetrieve}: RetrieveBookingProps) {
     const [bookingRef, setBookingRef] = useState("");
     const isValid = lastName.trim() !== "" && bookingRef.trim() !== "";
 
-    return <Card className="w-full h-fit flex-wrap flex-col gap-4 py-8 border-b-blue-200 shadow-blue-200">
-        <div className="flex flex-col gap-2 px-8">
+    return <Card className="w-full h-fit flex-wrap flex-col gap-4 py-6 md:py-8 border-b-blue-200 shadow-blue-200">
+        <div className="flex flex-col gap-2 px-4 md:px-8">
             <div className="text-2xl font-bold"> Retrieve Your Booking</div>
             <FieldGroup>
                 <Field>

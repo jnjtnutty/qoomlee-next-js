@@ -2,7 +2,7 @@ import {Card} from "@/components/ui/card";
 import {ArrowRight, BaggageClaim} from "lucide-react";
 
 export default function BaggageRules() {
-    return <Card className="w-full h-fit flex-wrap flex-col gap-3 border-b-blue-200 shadow-blue-200 px-6 rounded-md">
+    return <Card className="w-full h-fit flex-wrap flex-col gap-3 border-b-blue-200 shadow-blue-200 px-4 md:px-6 rounded-md">
         <div className="flex flex-row items-center gap-4">
             <div className="w-fit bg-cyan-100 p-2 rounded-md inline-flex items-center justify-center">
                 <BaggageClaim className="w-6 h-6 text-cyan-600"/>
