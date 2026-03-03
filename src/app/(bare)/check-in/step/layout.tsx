@@ -1,7 +1,5 @@
-import CheckinHeader from "@/components/CheckinHeader";
-
-const TOTAL_STEPS = 5;
-const CURRENT_STEP = 2;
+import {CheckinStepProvider} from "@/context/CheckinStepContext";
+import StepHeader from "@/components/StepHeader";
 
 export default function StepLayout({
                                        children,
@@ -9,14 +7,9 @@ export default function StepLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <>
-            <CheckinHeader
-                title="Check-in"
-                subtitle="Select Passengers"
-                currentStep={CURRENT_STEP}
-                totalSteps={TOTAL_STEPS}
-            />
+        <CheckinStepProvider totalSteps={5}>
+            <StepHeader/>
             {children}
-        </>
+        </CheckinStepProvider>
     );
 }

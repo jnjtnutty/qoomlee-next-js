@@ -4,6 +4,7 @@ import {useRouter} from "next/navigation";
 
 interface CheckinStepButtonProps {
     onContinue: () => void;
+    onBack?: () => void;
     disabled?: boolean;
     continueLabel?: string;
     backLabel?: string;
@@ -12,6 +13,7 @@ interface CheckinStepButtonProps {
 
 export default function CheckinStepButton({
                                               onContinue,
+                                              onBack,
                                               disabled = false,
                                               continueLabel = "Continue",
                                               backLabel = "Back",
@@ -29,7 +31,7 @@ export default function CheckinStepButton({
             <div className="bg-white border-t border-gray-200 py-4">
                 <div className="flex flex-row gap-2 justify-between">
                     <button
-                        onClick={() => router.back()}
+                        onClick={onBack ?? (() => router.back())}
                         className="w-full flex rounded-xl py-4 justify-center text-base font-semibold border border-sky-600 text-sky-600 bg-white hover:bg-sky-50">
                         {backLabel}
                     </button>
