@@ -59,7 +59,7 @@ export function CheckInPage3({passengers}: CheckInPage3Props) {
         goNext();
     };
     return (
-        <div className="min-h-screen bg-sky-50/50 pb-28">
+        <>
             <main className="mx-auto max-w-lg px-4 md:px-5 py-6 md:py-8">
                 <div className="rounded-2xl bg-white p-4 md:p-6 shadow-sm border border-gray-100">
                     <h2 className="text-lg md:text-xl font-bold text-gray-900">
@@ -89,6 +89,6 @@ export function CheckInPage3({passengers}: CheckInPage3Props) {
                 onContinue={handleContinue}
                 disabled={!isValid}
             />
-        </div>
+        </>
     );
 }

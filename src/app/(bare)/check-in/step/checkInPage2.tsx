@@ -36,7 +36,7 @@ export function CheckInPage2({passengers, onContinue}: CheckInPage2Props) {
     const allSelected = passengers.length > 0 && selectedIds.length === passengers.length;
 
     return (
-        <div className="min-h-screen bg-sky-50/50">
+        <>
             <main className="mx-auto max-w-lg px-5 py-8 pb-28">
                 <PassengerList
                     passengers={passengers}
@@ -54,6 +54,6 @@ export function CheckInPage2({passengers, onContinue}: CheckInPage2Props) {
                     />
                 }
             />
-        </div>
+        </>
     );
 }

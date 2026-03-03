@@ -1,6 +1,6 @@
 "use client";
 
-import {useState} from "react";
+import {useMemo, useState} from "react";
 import { Passenger } from "@/components/PassengerCard";
 import {useCheckinStep} from "@/context/CheckinStepContext";
 import {CheckInPage2} from "@/app/(bare)/check-in/step/checkInPage2";
@@ -21,11 +21,23 @@ export default function CheckinPage() {
         goNext();
     };
 
-    switch (currentStep) {
-        case 2: return <CheckInPage2 passengers={PASSENGERS} onContinue={handlePage2Continue}/>
-        case 3: return <CheckInPage3 passengers={selectedPassengers}/>
-        case 4: return <CheckInPage4 />
-        case 5: return <CheckInPage4 />
-        default : return <></>
-    }
+    const inner = useMemo(()=>{
+        switch (currentStep) {
+            case 2: return <CheckInPage2 passengers={PASSENGERS} onContinue={handlePage2Continue}/>
+            case 3: return <CheckInPage3 passengers={selectedPassengers}/>
+            case 4: return <CheckInPage4 />
+            case 5: return <CheckInPage4 />
+            default : return <></>
+        }
+    },[handlePage2Continue, currentStep, selectedPassengers])
+
+
+    return (
+        <div className="flex flex-col bg-sky-50/50 pb-28">
+            <div className="grow">
+                {inner}
+            </div>
+        </div>
+
+    )
 }
