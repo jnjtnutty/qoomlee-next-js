@@ -4,7 +4,8 @@ import {useState} from "react";
 import { Passenger } from "@/components/PassengerCard";
 import {useCheckinStep} from "@/context/CheckinStepContext";
 import {CheckInPage2} from "@/app/(bare)/check-in/step/checkInPage2";
-import {CheckinPage3} from "@/app/(bare)/check-in/step/checkinPage3";
+import {CheckInPage3} from "@/app/(bare)/check-in/step/checkInPage3";
+import {CheckInPage4} from "@/app/(bare)/check-in/step/checkInPage4";
 
 const PASSENGERS: Passenger[] = [
     { id: "1", name: "Alex Huum", type: "ADT", seat: "12A" },
@@ -20,8 +21,11 @@ export default function CheckinPage() {
         goNext();
     };
 
-    if (currentStep === 3) {
-        return <CheckinPage3 passengers={selectedPassengers}/>;
+    switch (currentStep) {
+        case 2: return <CheckInPage2 passengers={PASSENGERS} onContinue={handlePage2Continue}/>
+        case 3: return <CheckInPage3 passengers={selectedPassengers}/>
+        case 4: return <CheckInPage4 />
+        case 5: return <CheckInPage4 />
+        default : return <></>
     }
-    return <CheckInPage2 passengers={PASSENGERS} onContinue={handlePage2Continue}/>;
 }

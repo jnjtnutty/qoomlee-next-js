@@ -22,13 +22,13 @@ export default function CheckinStepButton({
     const router = useRouter();
 
     return (
-        <div className="fixed bottom-0 w-full px-5">
+        <div className="fixed bottom-0 w-full">
             {topRight && (
                 <div className="flex justify-end mb-3">
                     {topRight}
                 </div>
             )}
-            <div className="bg-white border-t border-gray-200 py-4">
+            <div className="bg-white border-t border-gray-200 py-4 px-2">
                 <div className="flex flex-row gap-2 justify-between">
                     <button
                         onClick={onBack ?? (() => router.back())}

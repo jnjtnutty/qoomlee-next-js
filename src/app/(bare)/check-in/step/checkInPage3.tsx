@@ -9,7 +9,7 @@ interface CheckInPage3Props {
     passengers: Passenger[]
 }
 
-export function CheckinPage3({passengers}: CheckInPage3Props) {
+export function CheckInPage3({passengers}: CheckInPage3Props) {
     const {goNext, goBack} = useCheckinStep();
     const [passengersDetail, setPassengersDetail] =
         useState<PassengerDetail[]>(() =>
