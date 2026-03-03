@@ -3,6 +3,8 @@
 import { useState, useCallback } from "react";
 import PassengerList from "@/components/PassengerList";
 import { Passenger } from "@/components/PassengerCard";
+import CheckinStepButton from "@/components/CheckinStepButton";
+import SelectAllButton from "@/components/SelectAllButton";
 
 const PASSENGERS: Passenger[] = [
     { id: "1", name: "Alex Huum", type: "ADT", seat: "12A" },
@@ -20,36 +22,40 @@ export default function CheckinPage() {
     }, []);
 
     const handleContinue = () => {
-        // Proceed to next step
         console.log("Continue with passengers:", selectedIds);
     };
 
+    const handleSelectAll = useCallback(() => {
+        setSelectedIds(PASSENGERS.map((p) => p.id));
+    }, []);
+
+    const handleClearAll = useCallback(() => {
+        setSelectedIds([]);
+    }, []);
+
     const hasSelection = selectedIds.length > 0;
+
+    const allSelected = PASSENGERS.length > 0 && selectedIds.length === PASSENGERS.length;
 
     return (
         <div className="min-h-screen bg-sky-50/50">
-            <main className="mx-auto max-w-lg px-5 py-8">
+            <main className="mx-auto max-w-lg px-5 py-8 pb-28">
                 <PassengerList
                     passengers={PASSENGERS}
                     selectedIds={selectedIds}
                     onToggle={handleToggle}
                 />
-
-                <div className="mt-8">
-                    <button
-                        onClick={handleContinue}
-                        disabled={!hasSelection}
-                        className={[
-                            "w-full rounded-xl py-4 text-base font-semibold transition-all duration-200",
-                            hasSelection
-                                ? "bg-sky-600 text-white hover:bg-sky-700 active:scale-[0.98] shadow-md shadow-sky-200"
-                                : "bg-gray-200 text-gray-400 cursor-not-allowed",
-                        ].join(" ")}
-                    >
-                        Continue
-                    </button>
-                </div>
             </main>
+            <CheckinStepButton
+                onContinue={handleContinue}
+                disabled={!hasSelection}
+                topRight={
+                    <SelectAllButton
+                        allSelected={allSelected}
+                        onToggle={allSelected ? handleClearAll : handleSelectAll}
+                    />
+                }
+            />
         </div>
     );
 }

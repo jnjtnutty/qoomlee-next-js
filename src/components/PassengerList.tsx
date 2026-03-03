@@ -9,14 +9,19 @@ interface PassengerListProps {
 export default function PassengerList({
                                           passengers,
                                           selectedIds,
-                                          onToggle,
+                                          onToggle
                                       }: PassengerListProps) {
+
     return (
         <div className="rounded-2xl bg-white p-6 shadow-sm border border-gray-100">
-            <h2 className="text-xl font-bold text-gray-900">Select Passengers</h2>
-            <p className="mt-1 text-sm text-gray-500">
-                Choose passengers for check-in
-            </p>
+            <div className="flex items-start justify-between">
+                <div>
+                    <h2 className="text-xl font-bold text-gray-900">Select Passengers</h2>
+                    <p className="mt-1 text-sm text-gray-500">
+                        Choose passengers for check-in
+                    </p>
+                </div>
+            </div>
 
             <hr className="my-5 border-gray-100" />
 
