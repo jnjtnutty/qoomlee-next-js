@@ -2,15 +2,8 @@
 
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
-
-const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "Flights", href: "/flights" },
-    { label: "Check-in", href: "/check-in" },
-    { label: "Manage Booking", href: "/manage-booking" },
-    { label: "Contact", href: "/contact" },
-];
+import {PlaneTakeoffIcon} from "lucide-react";
+import {navLinks} from "@/lib/navLinks";
 
 interface NavbarProps {
     isMobile: boolean;
@@ -24,12 +17,7 @@ export default function Navbar({ isMobile }: NavbarProps) {
         <nav className="w-full h-auto bg-white flex justify-center items-center px-8 py-4">
             <div className="max-w-6xl w-full flex justify-between">
             <div className="flex items-center gap-2">
-                <Image
-                    src="/next.svg"
-                    width={32}
-                    height={32}
-                    alt="Logo"
-                />
+                <PlaneTakeoffIcon className="w-8 h-8 text-sky-500"/>
                 <div className="flex flex-col items-center">
                     <h1 className="text-2xl font-bold text-black">Qoomlee</h1>
                     <p className="text-sm text-sky-500 text-align-center">Airline</p>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { MediaQueryProvider } from "@/context/MediaQueryContext";
 import NavbarWrapper from "@/components/NavbarWrapper";
+import BottomNavWrapper from "@/components/BottomNavWrapper";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +19,9 @@ export default function RootLayout({
       <body>
         <MediaQueryProvider>
           <NavbarWrapper />
-          {children}
+          <BottomNavWrapper>
+            {children}
+          </BottomNavWrapper>
         </MediaQueryProvider>
       </body>
     </html>
